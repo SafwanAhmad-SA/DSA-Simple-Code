@@ -73,7 +73,7 @@ Where:
 
 Graph used in this example:
 
-      <img width="835" height="376" alt="image" src="https://github.com/user-attachments/assets/5542941d-2302-4b97-afdc-e001ccfc1214" />
+<img width="835" height="376" alt="image" src="https://github.com/user-attachments/assets/5542941d-2302-4b97-afdc-e001ccfc1214" />
 
 ## 📋 Sample Input
 
