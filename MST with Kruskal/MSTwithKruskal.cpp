@@ -7,14 +7,12 @@ public:
     int u, v, w;
 };
 
-int parent[100];
-
-// Find parent
-int find(int x) {
-    while (parent[x] != x)
-        x = parent[x];
-
-    return x;
+// Function to find parent
+int findParent(int parent[], int i) {
+    while (parent[i] != i) {
+        i = parent[i];
+    }
+    return i;
 }
 
 int main() {
@@ -27,16 +25,17 @@ int main() {
     cin >> E;
 
     Edge edge[100];
+    int parent[100];
+
+    // Initialize parent array
+    for (int i = 0; i < V; i++) {
+        parent[i] = i;
+    }
 
     // Input edges
     cout << "Enter edges (u v weight):\n";
     for (int i = 0; i < E; i++) {
         cin >> edge[i].u >> edge[i].v >> edge[i].w;
-    }
-
-    // Initialize parent array
-    for (int i = 0; i < V; i++) {
-        parent[i] = i;
     }
 
     // Sort edges by weight
@@ -50,16 +49,16 @@ int main() {
         }
     }
 
-    int totalWeight = 0;
     int count = 0;
+    int totalWeight = 0;
 
     cout << "\nEdges in Minimum Spanning Tree:\n";
 
     // Kruskal's Algorithm
     for (int i = 0; i < E; i++) {
 
-        int uParent = find(edge[i].u);
-        int vParent = find(edge[i].v);
+        int uParent = findParent(parent, edge[i].u);
+        int vParent = findParent(parent, edge[i].v);
 
         // If no cycle is formed
         if (uParent != vParent) {
