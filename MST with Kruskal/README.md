@@ -17,7 +17,7 @@ Cycle detection is handled using a **Disjoint Set (Union–Find)** structure via
 
 ## Sample Graph
 
-![Sample Graph]<img width="967" height="332" alt="image" src="https://github.com/user-attachments/assets/d09b1a29-b4db-422e-a394-7067420ad5b9" />
+<img width="967" height="332" alt="image" src="https://github.com/user-attachments/assets/d09b1a29-b4db-422e-a394-7067420ad5b9" />
 
 
 The graph above has **6 vertices** and **7 edges**. The left side shows the original graph, and the right side shows the resulting Minimum Spanning Tree.
