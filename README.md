@@ -4,6 +4,20 @@ A collection of simple, beginner-friendly **Data Structures and Algorithms** imp
 
 This repository is meant to help students learn core DSA concepts through minimal, readable implementations.
 
+## 📂 Contents
+
+| # | Folder | Description |
+|---|--------|-------------|
+| 1 | [01 Knapsack](./01%20Knapsack) | 0/1 Knapsack problem using dynamic programming |
+| 2 | [BST](./BST) | Binary Search Tree operations (insert, search, traversal) |
+| 3 | [Bellman Ford Algorithm](./Bellman%20Ford%20Algorithm) | Shortest path with support for negative edge weights |
+| 4 | [Dijkstra Algorithm](./Dijkstra%20Algorithm) | Shortest path from a source vertex in a weighted graph |
+| 5 | [LCS](./LCS) | Longest Common Subsequence using dynamic programming |
+| 6 | [MST with Kruskal](./MST%20with%20Kruskal) | Minimum Spanning Tree using Kruskal's Algorithm |
+| 7 | [MST with Prims](./MST%20with%20Prims) | Minimum Spanning Tree using Prim's Algorithm |
+| 8 | [Merge Sort](./Merge%20Sort) | Divide-and-conquer sorting algorithm |
+| 9 | [Quick Sort](./Quick%20Sort) | Efficient in-place sorting using a pivot |
+
 ## 🛠️ Language
 All implementations are written in **C++ (100%)**.
 
