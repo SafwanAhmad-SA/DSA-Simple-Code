@@ -17,7 +17,7 @@ Cycle detection is handled using a **Disjoint Set (Union–Find)** structure via
 
 ## Sample Graph
 
-<img width="967" height="332" alt="image" src="https://github.com/user-attachments/assets/d09b1a29-b4db-422e-a394-7067420ad5b9" />
+<img width="967" height="332" alt="image" src="https://github.com/user-attachments/assets/c449a7ff-c996-4a20-a26f-7e817a8b67ef" />
 
 
 The graph above has **6 vertices** and **7 edges**. The left side shows the original graph, and the right side shows the resulting Minimum Spanning Tree.
@@ -33,14 +33,17 @@ The graph above has **6 vertices** and **7 edges**. The left side shows the orig
 | 5 – 6 | 6      |
 
 ## How to Run
-Compile and run the program, then enter the input as shown below.
-
-## Sample Input
-Enter the values in this order: **vertices**, **edges**, then each edge as `u v weight`.
+Compile and run the program, then enter the input as prompted:
 
 ```
-6
-7
+Enter number of vertices: 6
+Enter number of edges: 7
+Enter edges (u v weight):
+```
+
+Then paste the edge list below (this part can be copied directly):
+
+```
 1 2 1
 2 3 4
 1 4 3
