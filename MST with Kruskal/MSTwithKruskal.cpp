@@ -1,19 +1,20 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
-// Edge structure
+// Edge class
 class Edge {
 public:
     int u, v, w;
 };
 
-// Function to find parent
-int findParent(int parent[], int i) {
-    while (parent[i] != i) {
-        i = parent[i];
-    }
-    return i;
+int parent[100];
+
+// Find parent
+int find(int x) {
+    while (parent[x] != x)
+        x = parent[x];
+
+    return x;
 }
 
 int main() {
@@ -25,55 +26,58 @@ int main() {
     cout << "Enter number of edges: ";
     cin >> E;
 
-    Edge edges[100];   // assuming max 100 edges
-    int parent[100];
-
-    // Initialize parent
-    for (int i = 0; i < V; i++) {
-        parent[i] = i;
-    }
+    Edge edge[100];
 
     // Input edges
     cout << "Enter edges (u v weight):\n";
     for (int i = 0; i < E; i++) {
-        cin >> edges[i].u >> edges[i].v >> edges[i].w;
+        cin >> edge[i].u >> edge[i].v >> edge[i].w;
     }
 
-    // Sort edges by weight (simple sorting)
+    // Initialize parent array
+    for (int i = 0; i < V; i++) {
+        parent[i] = i;
+    }
+
+    // Sort edges by weight
     for (int i = 0; i < E - 1; i++) {
         for (int j = i + 1; j < E; j++) {
-            if (edges[i].w > edges[j].w) {
-                Edge temp = edges[i];
-                edges[i] = edges[j];
-                edges[j] = temp;
+            if (edge[i].w > edge[j].w) {
+                Edge temp = edge[i];
+                edge[i] = edge[j];
+                edge[j] = temp;
             }
         }
     }
 
+    int totalWeight = 0;
+    int count = 0;
+
     cout << "\nEdges in Minimum Spanning Tree:\n";
 
-    int count = 0;
-    int totalWeight = 0;
-
-    // Kruskal algorithm
+    // Kruskal's Algorithm
     for (int i = 0; i < E; i++) {
 
-        int uParent = findParent(parent, edges[i].u);
-        int vParent = findParent(parent, edges[i].v);
+        int uParent = find(edge[i].u);
+        int vParent = find(edge[i].v);
 
-        // If no cycle
+        // If no cycle is formed
         if (uParent != vParent) {
-            cout << edges[i].u << " - "
-                 << edges[i].v << " : "
-                 << edges[i].w << endl;
 
-            totalWeight += edges[i].w;
+            cout << edge[i].u << " - "
+                 << edge[i].v << " : "
+                 << edge[i].w << endl;
+
+            totalWeight += edge[i].w;
+
+            // Union
             parent[uParent] = vParent;
-            count++;
-        }
 
-        if (count == V - 1)
-            break;
+            count++;
+
+            if (count == V - 1)
+                break;
+        }
     }
 
     cout << "\nTotal Weight of MST: " << totalWeight << endl;
