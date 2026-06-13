@@ -13,8 +13,6 @@ Bellman-Ford is a **single-source shortest path algorithm** that finds the short
 
 ## Sample Graph
 
-![Sample Graph](image-name-here.png)
-
 The graph above is a **directed weighted graph**. Each edge points from `u` to `v` with the given weight.
 
 | Edge (u → v) | Weight |
