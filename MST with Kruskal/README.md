@@ -16,17 +16,11 @@ Cycle detection is handled using a **Disjoint Set (Union–Find)** structure via
 - Overall: **O(E log E)** (or O(E²) here, since this code uses simple bubble sort)
 
 ## Sample Graph
-The graph below has **6 vertices** and **7 edges**:
 
-```
-        1            4
-   (1)------(2)------(3)
-    |        |        /
-  3 |      2 |     5 /
-    |        |      /
-   (4)------(5)----(6)
-        6        6
-```
+![Sample Graph]<img width="967" height="332" alt="image" src="https://github.com/user-attachments/assets/d09b1a29-b4db-422e-a394-7067420ad5b9" />
+
+
+The graph above has **6 vertices** and **7 edges**. The left side shows the original graph, and the right side shows the resulting Minimum Spanning Tree.
 
 | Edge  | Weight |
 |-------|--------|
@@ -68,4 +62,6 @@ Edges in Minimum Spanning Tree:
 Total Weight of MST: 16
 ```
 
-The resulting MST is shown on the right side of the sample graph.
+---
+
+> **Note:** This README is generated for learning purposes.
