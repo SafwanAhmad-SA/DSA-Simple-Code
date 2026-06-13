@@ -74,8 +74,7 @@ Where:
 Graph used in this example:
 
 ```
-       <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/af46147d-157c-4b2b-90dc-6380a760ffb7" />
-
+      <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/75794e00-2b1a-4bf5-9e20-41ef1c03d22d" />
 ```
 
 ---
