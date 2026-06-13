@@ -1,457 +1,71 @@
-# 🌳 Minimum Spanning Tree (MST) using Kruskal's Algorithm
+# Kruskal's Algorithm
 
-A simple C++ implementation of **Kruskal's Algorithm** to find the **Minimum Spanning Tree (MST)** of a weighted undirected graph.
+## Definition
+Kruskal's Algorithm is a **greedy algorithm** used to find the **Minimum Spanning Tree (MST)** of a connected, weighted, undirected graph. An MST is a subset of edges that connects all vertices together with the **minimum possible total edge weight** and without forming any cycle.
 
----
+## How It Works
+1. Sort all edges in increasing order of their weight.
+2. Pick the smallest edge. If it does not form a cycle with the already selected edges, include it in the MST.
+3. If it forms a cycle, discard it.
+4. Repeat until the MST contains exactly **(V − 1)** edges.
 
-## 📌 Overview
+Cycle detection is handled using a **Disjoint Set (Union–Find)** structure via the `findParent()` function.
 
-Kruskal's Algorithm is a greedy algorithm that constructs a Minimum Spanning Tree by repeatedly selecting the edge with the smallest weight that does not form a cycle.
+## Time Complexity
+- Sorting edges: **O(E log E)**
+- Overall: **O(E log E)** (or O(E²) here, since this code uses simple bubble sort)
 
-This implementation:
+## Sample Graph
+The graph below has **6 vertices** and **7 edges**:
 
-* Sorts all edges in ascending order of weight
-* Uses a simple Union-Find (Disjoint Set) structure
-* Generates the Minimum Spanning Tree
-* Calculates the total weight of the MST
-
----
-
-## 📂 Files
-
-| File                 | Description                |
-| -------------------- | -------------------------- |
-| `MSTwithKruskal.cpp` | Source code implementation |
-| `README.md`          | Project documentation      |
-
----
-
-## 🧠 Algorithm Steps
-
-1. Sort all edges by increasing weight.
-2. Pick the smallest edge.
-3. Check whether adding it creates a cycle.
-4. If no cycle is formed, include it in the MST.
-5. Repeat until `V - 1` edges have been selected.
-
----
-
-## ⏱️ Time Complexity
-
-| Operation     | Complexity |
-| ------------- | ---------- |
-| Sorting Edges | O(E²)      |
-| Finding MST   | O(E × V)   |
-| Overall       | O(E²)      |
-
----
-
-## 📥 Input Format
-
-The program expects the following input:
-
-```text
-Number of Vertices
-Number of Edges
-
-u v weight
-u v weight
-u v weight
-...
+```
+        1            4
+   (1)------(2)------(3)
+    |        |        /
+  3 |      2 |     5 /
+    |        |      /
+   (4)------(5)----(6)
+        6        6
 ```
 
-Where:
+| Edge  | Weight |
+|-------|--------|
+| 1 – 2 | 1      |
+| 2 – 3 | 4      |
+| 1 – 4 | 3      |
+| 2 – 5 | 2      |
+| 3 – 5 | 5      |
+| 4 – 5 | 6      |
+| 5 – 6 | 6      |
 
-* `u` = Source Vertex
-* `v` = Destination Vertex
-* `weight` = Edge Weight
+## How to Run
+Compile and run the program, then enter the input as shown below.
 
----
+## Sample Input
+Enter the values in this order: **vertices**, **edges**, then each edge as `u v weight`.
 
-
-## 🖼️ Sample Graph
-
-Graph used in this example:
-
-<img width="835" height="376" alt="image" src="https://github.com/user-attachments/assets/5542941d-2302-4b97-afdc-e001ccfc1214" />
-
-## 📋 Sample Input
-
-Copy and paste directly into the program:
-
-```text
-9
-14
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
+```
+6
+7
+1 2 1
+2 3 4
+1 4 3
+2 5 2
+3 5 5
+4 5 6
+5 6 6
 ```
 
----
-
-## ▶️ Program Interaction
-
-```text
-Enter number of vertices: 9
-Enter number of edges: 14
-Enter edges (u v weight):
-
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
+## Expected Output
 ```
-
----
-
-## ✅ Expected Output
-
-```text
 Edges in Minimum Spanning Tree:
+1 - 2 : 1
+2 - 5 : 2
+1 - 4 : 3
+2 - 3 : 4
+5 - 6 : 6
 
-6 - 7 : 1
-2 - 8 : 2
-5 - 6 : 2
-0 - 1 : 4
-2 - 5 : 4
-2 - 3 : 7
-0 - 7 : 8
-3 - 4 : 9
-
-Total Weight of MST: 37
+Total Weight of MST: 16
 ```
 
----
-
-## 🌲 Minimum Spanning Tree
-
-Selected edges:
-
-```text
-6 - 7 : 1
-2 - 8 : 2
-5 - 6 : 2
-0 - 1 : 4
-2 - 5 : 4
-2 - 3 : 7
-0 - 7 : 8
-3 - 4 : 9
-```
-
-Total MST Weight:
-
-```text
-37
-```
-
----
-
-## 🛠️ Compile and Run
-
-### Linux / macOS
-
-```bash
-g++ MSTwithKruskal.cpp -o MSTwithKruskal
-./MSTwithKruskal
-```
-
-### Windows
-
-```bash
-g++ MSTwithKruskal.cpp -o MSTwithKruskal.exe
-MSTwithKruskal.exe
-```
-
----
-
-## 📚 Concepts Used
-
-* Graph Theory
-* Minimum Spanning Tree (MST)
-* Greedy Algorithms
-* Kruskal's Algorithm
-* Disjoint Set Union (Union-Find)
-
----
-
-## 👨‍💻 Author
-
-Developed as part of Data Structures and Algorithms (DSA) practice and learning.
-
-```
-
----
-
-## 📋 Sample Input
-
-Copy and paste directly into the program:
-
-```text
-9
-14
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
-```
-
----
-
-## ▶️ Program Interaction
-
-```text
-Enter number of vertices: 9
-Enter number of edges: 14
-Enter edges (u v weight):
-
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
-```
-
----
-
-## ✅ Expected Output
-
-```text
-Edges in Minimum Spanning Tree:
-
-6 - 7 : 1
-2 - 8 : 2
-5 - 6 : 2
-0 - 1 : 4
-2 - 5 : 4
-2 - 3 : 7
-0 - 7 : 8
-3 - 4 : 9
-
-Total Weight of MST: 37
-```
-
----
-
-## 🌲 Minimum Spanning Tree
-
-Selected edges:
-
-```text
-6 - 7 : 1
-2 - 8 : 2
-5 - 6 : 2
-0 - 1 : 4
-2 - 5 : 4
-2 - 3 : 7
-0 - 7 : 8
-3 - 4 : 9
-```
-
-Total MST Weight:
-
-```text
-37
-```
-
----
-
-## 🛠️ Compile and Run
-
-### Linux / macOS
-
-```bash
-g++ MSTwithKruskal.cpp -o MSTwithKruskal
-./MSTwithKruskal
-```
-
-### Windows
-
-```bash
-g++ MSTwithKruskal.cpp -o MSTwithKruskal.exe
-MSTwithKruskal.exe
-```
-
----
-
-## 📚 Concepts Used
-
-* Graph Theory
-* Minimum Spanning Tree (MST)
-* Greedy Algorithms
-* Kruskal's Algorithm
-* Disjoint Set Union (Union-Find)
-
----
-
-## 👨‍💻 Author
-
-Developed as part of Data Structures and Algorithms (DSA) practice and learning.
-
-```
-
----
-
-## 📋 Sample Input
-
-Copy and paste directly into the program:
-
-```text
-9
-14
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
-```
-
----
-
-## ▶️ Program Interaction
-
-```text
-Enter number of vertices: 9
-Enter number of edges: 14
-Enter edges (u v weight):
-
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
-```
-
----
-
-## ✅ Expected Output
-
-```text
-Edges in Minimum Spanning Tree:
-
-6 - 7 : 1
-2 - 8 : 2
-5 - 6 : 2
-0 - 1 : 4
-2 - 5 : 4
-2 - 3 : 7
-0 - 7 : 8
-3 - 4 : 9
-
-Total Weight of MST: 37
-```
-
----
-
-## 🌲 Minimum Spanning Tree
-
-Selected edges:
-
-```text
-6 - 7 : 1
-2 - 8 : 2
-5 - 6 : 2
-0 - 1 : 4
-2 - 5 : 4
-2 - 3 : 7
-0 - 7 : 8
-3 - 4 : 9
-```
-
-Total MST Weight:
-
-```text
-37
-```
-
----
-
-## 🛠️ Compile and Run
-
-### Linux / macOS
-
-```bash
-g++ MSTwithKruskal.cpp -o MSTwithKruskal
-./MSTwithKruskal
-```
-
-### Windows
-
-```bash
-g++ MSTwithKruskal.cpp -o MSTwithKruskal.exe
-MSTwithKruskal.exe
-```
-
----
-
-## 📚 Concepts Used
-
-* Graph Theory
-* Minimum Spanning Tree (MST)
-* Greedy Algorithms
-* Kruskal's Algorithm
-* Disjoint Set Union (Union-Find)
-
----
-
-## 👨‍💻 Author
-
-Developed as part of Data Structures and Algorithms (DSA) practice and learning.
-
+The resulting MST is shown on the right side of the sample graph.
