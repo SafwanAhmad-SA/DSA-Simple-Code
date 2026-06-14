@@ -2,7 +2,7 @@
 using namespace std;
 
 int partition(int arr[], int low, int high) {
-    int pivot = arr[high]; // Last element as pivot
+    int pivot = arr[high];
     int i = low - 1;
 
     for (int j = low; j < high; j++) {
@@ -26,15 +26,25 @@ void quickSort(int arr[], int low, int high) {
 }
 
 int main() {
-    int arr[] = {8, 4, 7, 3, 9, 1, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    int arr[100];
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
     quickSort(arr, 0, n - 1);
 
-    cout << "Sorted Array: ";
+    cout << "\nSorted Array: ";
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
+
+    cout << endl;
 
     return 0;
 }
