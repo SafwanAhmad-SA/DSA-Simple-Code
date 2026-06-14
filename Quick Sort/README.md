@@ -1,12 +1,12 @@
 # Quick Sort
 
 ## Definition
-Quick Sort is an efficient **divide-and-conquer** sorting algorithm. It works by selecting a **pivot** element and **partitioning** the array so that elements smaller than the pivot go to its left and larger elements go to its right. The sub-arrays on either side are then sorted recursively. This implementation uses the **last element** as the pivot.
+Quick Sort is an efficient **divide-and-conquer** sorting algorithm. It works by selecting a **pivot** element and **partitioning** the array so that elements smaller than the pivot go to its left and larger elements go to its right. The sub-arrays on either side are then sorted recursively. This implementation uses the **first element** as the pivot.
 
 ## How It Works
-1. Pick a **pivot** (here, the last element of the array/sub-array).
-2. **Partition** the array: rearrange elements so smaller ones are left of the pivot and larger ones are right. The pivot lands in its final sorted position.
-3. Recursively apply the same process to the left and right sub-arrays.
+1. Pick a **pivot** (here, the first element of the array/sub-array).
+2. **Partition** the array using two pointers: one moves forward past elements smaller than or equal to the pivot, the other moves backward past elements larger than the pivot. They swap when out of place.
+3. Place the pivot in its correct sorted position, then recursively sort the left and right sub-arrays.
 4. The recursion stops when sub-arrays have one or zero elements (already sorted).
 
 ## Time Complexity
