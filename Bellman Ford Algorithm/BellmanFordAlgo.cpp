@@ -17,7 +17,7 @@ int main() {
 
     Edge edges[100];
 
-    cout << "Enter edges (u v weight):\n";
+    cout << "Enter edges (u v weight):" << endl;
     for (int i = 0; i < E; i++) {
         cin >> edges[i].u >> edges[i].v >> edges[i].w;
     }
@@ -32,8 +32,8 @@ int main() {
     int source = 0;
     dist[source] = 0;
 
-    // Relax edges V-1 times
-    for (int i = 1; i <= V - 1; i++) {
+    // Relax all edges V-1 times
+    for (int i = 0; i < V - 1; i++) {
         for (int j = 0; j < E; j++) {
             int u = edges[j].u;
             int v = edges[j].v;
@@ -45,19 +45,19 @@ int main() {
         }
     }
 
-    // Check for negative cycle
+    // Check for negative weight cycle
     for (int j = 0; j < E; j++) {
         int u = edges[j].u;
         int v = edges[j].v;
         int w = edges[j].w;
 
         if (dist[u] != 9999 && dist[u] + w < dist[v]) {
-            cout << "Graph contains negative weight cycle\n";
+            cout << "Graph contains a negative weight cycle." << endl;
             return 0;
         }
     }
 
-    cout << "\nShortest distances from source vertex 0:\n";
+    cout << "\nShortest distances from source vertex 0:" << endl;
     for (int i = 0; i < V; i++) {
         cout << "0 -> " << i << " = " << dist[i] << endl;
     }
